@@ -15,3 +15,9 @@
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+- task: KubernetesManifest@0
+  inputs:
+    action: 'deploy'
+    kubernetesServiceConnection: 'Private AKS Conn'
+    namespace: 'Default'
+    manifests: 'application-deployment-yaml'
